@@ -22,6 +22,48 @@ body {
 .footer *{
 	color: white !important;
 }
+tr,td {
+	border: solid;
+	border-color: black;
+}
+#lg1 {
+	width: 50px;
+	text-align: center;
+}
+#lg2 {
+	width: 200px;
+	text-align: center;
+}
+#lg3 {
+	width: auto;
+	text-align: center;
+}
+.center-div {
+	margin: 0 auto;
+	width: 1000px; 
+}
+
+#modifier {
+    background-color: #007BFF;
+    Color:white;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 2px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: none;
+  }
+
+#supprimer {
+	background-color: rgb(247, 14, 52);
+    Color:white;
+    font-weight: bold;
+    padding: 5px 20px;
+    border-radius: 2px;
+    cursor: pointer; 
+    box-shadow: 0 8px 16px 0 grey;
+    text-decoration: none;
+}
 
 .container {
 	margin-top: 100px;
