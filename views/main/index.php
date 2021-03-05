@@ -1,5 +1,5 @@
 <h1>CONNECTEZ VOUS</h1>
-<form action="./authentification/login" method="get">
+<form action="./authentification/login/" method="post">
     <div>
         <label for="login">Enter your name: </label>
         <input type="text" name="login" id="login" required>

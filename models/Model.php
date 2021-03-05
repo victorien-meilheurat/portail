@@ -24,7 +24,7 @@ abstract class Model{
     }
 
     public function getById($id){
-        $sql = "select * from ".$this->table." where id=".$id;//$this->id;
+        $sql = "select * from ".$this->table." where id=".$id;
         $query = $this->_connexion->prepare($sql);
         $query->execute();
 
@@ -37,5 +37,13 @@ abstract class Model{
         $query->execute();
 
         return $query->fetchAll();
+    }
+
+    public function deleteById($id){
+        $sql = "delete from ".$this->table." where id=".$id;
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+
+        return null;
     }
 }

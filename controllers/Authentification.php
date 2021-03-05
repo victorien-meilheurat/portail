@@ -4,10 +4,13 @@ class Authentification extends Controller{
     public function login(){
         $this->loadModel('Utilisateur');
 
-        $utilisateur = $this->Utilisateur->login();
+        $login = $_POST['login'];
+        $password = $_POST['password'];
 
+        $utilisateur = $this->Utilisateur->login($login, $password);
+        
         if ($utilisateur!=null) {
-            
+            $_SESSION['utilisateur'] = $utilisateur;
             $this->render('index', compact('utilisateur'));
         } else {
             require_once(ROOT.'controllers/Main.php');

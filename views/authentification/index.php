@@ -1,1 +1,1 @@
-<h1>Bonjour, <?= utilisteur['prenom']?></h1>
+<h1>Bonjour, <?= $utilisateur['prenom']?></h1>
