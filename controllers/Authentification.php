@@ -1,16 +1,19 @@
 <?php
 
 class Authentification extends Controller{
-    public function log(){
+    public function login(){
         $this->loadModel('Utilisateur');
-        $utilisateur = $this->Utilisateur->getConnexion();
+
+        $utilisateur = $this->Utilisateur->login();
 
         if ($utilisateur!=null) {
             
             $this->render('index', compact('utilisateur'));
         } else {
+            require_once(ROOT.'controllers/Main.php');
 
-            //$this->render('detail', compact('role'));
+            $controller = new Main();
+            $controller->index();
         }
     } 
 }

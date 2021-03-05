@@ -19,10 +19,13 @@ if($params[0] != ""){
     if(method_exists($controller, $action)){
         unset($params[0]);
         unset($params[1]);
+        var_dump($params);
         call_user_func_array([$controller, $action], $params);
     }else{
         http_response_code(404);
         echo "La page n'existe pas !!";
+        echo $params[0];
+        echo $params[1];
     }
 
 }else{
