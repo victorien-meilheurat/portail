@@ -2,15 +2,19 @@
 
 class TypeExamens extends Controller{
     public function index(){
-        $this->loadModel('TypeExamen');
-        $typeExamens = $this->TypeExamen->getAll();
+        if ($_SESSION['utilisateur']['id_role']==1) {
+            $this->loadModel('TypeExamen');
+            $typeExamens = $this->TypeExamen->getAll();
 
-        $this->render('index', compact('typeExamens'));
+            $this->render('index', compact('typeExamens'));
+        }
     }
     public function detail($id){
-        $this->loadModel('TypeExamen');
-        $typeExamen = $this->TypeExamen->getById($id);
+        if ($_SESSION['utilisateur']['id_role']==1) {
+            $this->loadModel('TypeExamen');
+            $typeExamen = $this->TypeExamen->getById($id);
 
-        $this->render('detail', compact('typeExamen'));
+            $this->render('detail', compact('typeExamen'));
+        }
     }
 }

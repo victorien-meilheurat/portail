@@ -2,10 +2,12 @@
 
 class Matieres extends Controller{
     public function index(){
-        $this->loadModel('Matiere');
-        $matieres = $this->Matiere->getAll();
+        if ($_SESSION['utilisateur']['id_role']==1) {
+            $this->loadModel('Matiere');
+            $matieres = $this->Matiere->getAll();
 
-        $this->render('index', compact('matieres'));
+            $this->render('index', compact('matieres'));
+        }
     }
     public function detail($id){
         $this->loadModel('Matiere');

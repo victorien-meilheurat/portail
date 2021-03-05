@@ -2,6 +2,7 @@
 session_start();
 
 define('ROOT', str_replace('index.php', '', $_SERVER['SCRIPT_FILENAME']));
+define('ROOTLINK', 'portail');
 
 require_once(ROOT.'models/Model.php');
 require_once(ROOT.'controllers/Controller.php');

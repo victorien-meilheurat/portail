@@ -2,15 +2,19 @@
 
 class Classes extends Controller{
     public function index(){
-        $this->loadModel('Classe');
-        $classes = $this->Classe->getAll();
+        if ($_SESSION['utilisateur']['id_role']==1) {
+            $this->loadModel('Classe');
+            $classes = $this->Classe->getAll();
 
-        $this->render('index', compact('classes'));
+            $this->render('index', compact('classes'));
+        }
     }
     public function detail($id){
-        $this->loadModel('Classe');
-        $classe = $this->Classe->getById($id);
+        if ($_SESSION['utilisateur']['id_role']==1) {
+            $this->loadModel('Classe');
+            $classe = $this->Classe->getById($id);
 
-        $this->render('detail', compact('classe'));
+            $this->render('detail', compact('classe'));
+        }
     }
 }
