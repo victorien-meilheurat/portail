@@ -10,7 +10,7 @@ abstract class Model{
     protected $_connexion;
 
     public $table;
-    public $id;
+    //public $id;
 
     public function getConnection(){
         $this->_connexion=null;
@@ -22,8 +22,8 @@ abstract class Model{
             echo "Erreur de connexion : ".$exception->getMessage();
         } 
     }
-    public function getById(){
-        $sql = "select * from ".$this->table." where id=".$this->id;
+    public function getById($id){
+        $sql = "select * from ".$this->table." where id=".$id;//$this->id;
         $query = $this->_connexion->prepare($sql);
         $query->execute();
 

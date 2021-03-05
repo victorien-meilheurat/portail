@@ -17,7 +17,9 @@ if($params[0] != ""){
     $controller = new $controller();
 
     if(method_exists($controller, $action)){
-        $controller->$action();
+        unset($params[0]);
+        unset($params[1]);
+        call_user_func_array([$controller, $action], $params);
     }else{
         http_response_code(404);
         echo "La page n'existe pas !!";

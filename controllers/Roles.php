@@ -5,6 +5,12 @@ class Roles extends Controller{
         $this->loadModel('Role');
         $roles = $this->Role->getAll();
 
-        var_dump($roles);
-    } 
+        $this->render('index', compact('roles'));
+    }
+    public function detail($id){
+        $this->loadModel('Role');
+        $role = $this->Role->getById($id);
+
+        $this->render('index', compact('role'));
+    }
 }
