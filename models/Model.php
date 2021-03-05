@@ -2,7 +2,7 @@
 
 abstract class Model{
 
-    private $host="localhost";
+    private $host="localhost:3307";
     private $db_name="portailetudiant";
     private $user_name="root";
     private $password="";
@@ -22,6 +22,7 @@ abstract class Model{
             echo "Erreur de connexion : ".$exception->getMessage();
         } 
     }
+
     public function getById(){
         $sql = "select * from ".$this->table." where id=".$this->id;
         $query = $this->_connexion->prepare($sql);
@@ -29,6 +30,7 @@ abstract class Model{
 
         return $query->fetch();
     }
+    
     public function getAll(){
         $sql = "select * from ".$this->table;
         $query = $this->_connexion->prepare($sql);
