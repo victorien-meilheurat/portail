@@ -2,7 +2,7 @@
 
 abstract class Model{
 
-    private $host="localhost:3307";
+    private $host="localhost";
     private $db_name="portailetudiant";
     private $user_name="root";
     private $password="";

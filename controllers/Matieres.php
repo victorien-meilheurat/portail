@@ -5,6 +5,12 @@ class Matieres extends Controller{
         $this->loadModel('Matiere');
         $matieres = $this->Matiere->getAll();
 
-        var_dump($matieres);
-    } 
+        $this->render('index', compact('matieres'));
+    }
+    public function detail($id){
+        $this->loadModel('Matiere');
+        $matiere = $this->Matiere->getById($id);
+
+        $this->render('detail', compact('matiere'));
+    }
 }
