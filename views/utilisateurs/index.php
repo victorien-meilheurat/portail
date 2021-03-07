@@ -1,22 +1,20 @@
-<link rel="stylesheet" href="../../public/css/main.css" />
-
 <div class="center-div">
     <h2>Noms des utilisateurs</h2>
 
-    <?php foreach($utilisateurs as $utilisateur): ?>
-
-
+    <div>
+        <a href="/<?= ROOTLINK?>/utilisateurs/detail/">Ajouter un nouveau utilisateur</a>
+    </div>
     <table>
+        <?php foreach($utilisateurs as $utilisateur): ?>
             <tr>
-                <td id="lg1"><h2><a href="./utilisateurs/detail/<?=$utilisateur['id']?>"><?=$utilisateur['id']?></a></h2></td>
+                <td id="lg1"><h2><a href="/<?= ROOTLINK?>/utilisateurs/detail/<?=$utilisateur['id']?>"><?=$utilisateur['id']?></a></h2></td>
                 <td id="lg2"><p><?=$utilisateur['nom']?></p></td>
                 <td id="lg2"><p><?=$utilisateur['prenom']?></p></td>
                 <td id="lg3">
-                    <input name="modifier" type="submit" id="modifier" value="Modifier" />
-                    <input name="supprimer" type="submit" id="supprimer" value="Supprimer" /></td>
-                </tr>
+                    <a href="/<?= ROOTLINK?>/utilisateurs/detail/<?=$utilisateur['id']?>">Modifier</a>
+                    <a href="/<?= ROOTLINK?>/utilisateurs/delete/<?=$utilisateur['id']?>">Supprimer</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
     </table>
-    <br>
-
-    <?php endforeach ?>
 </div>

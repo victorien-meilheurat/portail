@@ -1,22 +1,21 @@
-<link rel="stylesheet" href="../../public/css/main.css" />
-
 <div class="center-div">
     <h2>Noms des cours</h2>
 
-    <?php foreach($cours as $cour): ?>
-
+    <div>
+        <a href="/<?= ROOTLINK?>/cours/detail/">Ajouter un nouveau cours</a>
+    </div>
     <table>
-            <tr>
-                <td id="lg1"><h2><a href="./cours/detail/<?=$cour['id']?>"><?=$cour['id']?></a></h2></td>
-                <td id="lg2"><p><?=$cour['nom']?></p></td>
-                <td id="lg2"><p><?=$cour['dateDebut']?></p></td>
-                <td id="lg2"><p><?=$cour['dateFin']?></p></td>
-                <td id="lg3">
-                    <input name="modifier" type="submit" id="modifier" value="Modifier" />
-                    <input name="supprimer" type="submit" id="supprimer" value="Supprimer" /></td>
-                </tr>
-    </table>
-    <br>
-
+    <?php foreach($cours as $cour): ?>
+        <tr>
+            <td id="lg1"><h2><?=$cour['id']?></h2></td>
+            <td id="lg2"><p><?=$cour['nom']?></p></td>
+            <td id="lg2"><p><?=$cour['dateDebut']?></p></td>
+            <td id="lg2"><p><?=$cour['dateFin']?></p></td>
+            <td id="lg3">
+                <a href="/<?= ROOTLINK?>/cours/detail/<?=$cour['id']?>">Modifier</a>
+                <a href="/<?= ROOTLINK?>/cours/delete/<?=$cour['id']?>">Supprimer</a>
+            </td>
+        </tr>
     <?php endforeach ?>
+    </table>
 </div>

@@ -1,14 +1,14 @@
 <h1>CONNECTEZ VOUS</h1>
-<form action="./authentification/login/" method="post">
+<form action="/<?= ROOTLINK?>/authentification/login/" method="post">
     <div>
-        <label for="login">Enter your name: </label>
+        <label for="login">Nom d'utilisateur : </label>
         <input type="text" name="login" id="login" required>
     </div>
     <div>
-        <label for="password">Enter your email: </label>
+        <label for="password">Mot de passe : </label>
         <input type="password" name="password" id="password" required>
     </div>
     <div>
-        <input type="submit" value="Subscribe!">
+        <input type="submit" value="Connexion!">
     </div>
 </form>

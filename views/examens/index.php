@@ -1,20 +1,18 @@
-<link rel="stylesheet" href="../../public/css/main.css" />
-
 <div class="center-div">
     <h2>Noms des Examens</h2>
 
-    <?php foreach($examens as $examen): ?>
-
+    <div>
+        <a href="/<?= ROOTLINK?>/examens/detail/">Ajouter un nouveau cours</a>
+    </div>
     <table>
-            <tr>
-                <td id="lg1"><h2><a href="./examens/detail/<?=$examen['id']?>"><?=$examen['id']?></a></h2></td>
-                <td id="lg2"><p><p><?=$examen['nom']?></p></td>
-                <td id="lg3">
-                    <input name="modifier" type="submit" id="modifier" value="Modifier" />
-                    <input name="supprimer" type="submit" id="supprimer" value="Supprimer" /></td>
-                </tr>
-    </table>
-    <br>
-
+    <?php foreach($examens as $examen): ?>
+        <tr>
+            <td id="lg1"><h2><?=$examen['id']?></h2></td>
+            <td id="lg2"><p><p><?=$examen['nom']?></p></td>
+            <td id="lg3">
+                <a href="/<?= ROOTLINK?>/examens/detail/<?=$examen['id']?>">Modifier</a>
+                <a href="/<?= ROOTLINK?>/examens/delete/<?=$examen['id']?>">Supprimer</a>            </td>
+        </tr>
     <?php endforeach ?>
+    </table>
 </div>

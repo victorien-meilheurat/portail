@@ -46,4 +46,37 @@ abstract class Model{
 
         return null;
     }
+
+    public function add(array $datas = []){
+        $sql = "INSERT INTO ".$this->table." (";
+        foreach($datas as $key => $value){
+            $sql .= $key.", ";
+        }
+        $sql = substr($sql, 0, -2);
+        $sql .= ") VALUES (";
+        foreach($datas as $key => $value){
+            $sql .= "'".$value."', ";
+        }
+        $sql = substr($sql, 0, -2);
+        $sql .= ")";
+
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+        
+        return null;
+    }
+
+    public function update($id, array $datas = []){
+        $sql = "UPDATE ".$this->table." SET ";
+        foreach($datas as $key => $value){
+            $sql .= $key."='".$value."', ";//boucle
+        }
+        $sql = substr($sql, 0, -2);
+        $sql .= " WHERE id=".$id;
+
+        $query = $this->_connexion->prepare($sql);
+        $query->execute();
+        
+        return null;
+    }
 }

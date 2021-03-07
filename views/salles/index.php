@@ -1,21 +1,20 @@
-<link rel="stylesheet" href="../../public/css/main.css" />
-
 <div class="center-div">
     <h2>Noms des salles</h2>
 
-    <?php foreach($salles as $salle): ?>
-
+    <div>
+        <a href="/<?= ROOTLINK?>/salles/detail/">Ajouter une nouvelle salle</a>
+    </div>
     <table>
+        <?php foreach($salles as $salle): ?>
             <tr>
-                <td id="lg1"><h2><a href="./salles/detail/<?=$salle['id']?>"><?=$salle['id']?></a></h2></td>
+                <td id="lg1"><?=$salle['id']?></h2></td>
                 <td id="lg2"><p><?=$salle['batiment']?></p></td>
                 <td id="lg2"><p><?=$salle['numero']?></p></td>
                 <td id="lg3">
-                    <input name="modifier" type="submit" id="modifier" value="Modifier" />
-                    <input name="supprimer" type="submit" id="supprimer" value="Supprimer" /></td>
-                </tr>
+                    <a href="/<?= ROOTLINK?>/salles/detail/<?=$salle['id']?>">Modifier</a>
+                    <a href="/<?= ROOTLINK?>/salles/delete/<?=$salle['id']?>">Supprimer</a>
+                </td>
+            </tr>
+        <?php endforeach ?>
     </table>
-    <br>
-
-    <?php endforeach ?>
 </div>

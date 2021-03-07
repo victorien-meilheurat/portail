@@ -9,7 +9,7 @@ require_once(ROOT.'controllers/Controller.php');
 
 $params = explode('/', $_GET['p']);
 
-if($params[0] != "" && isset($_SESSION['utilisateur'])){
+if($params[0] != ""){
 
     $controller = ucfirst($params[0]);
     $action = isset($params[1])?$params[1]:'index';
@@ -29,9 +29,15 @@ if($params[0] != "" && isset($_SESSION['utilisateur'])){
     }
 
 }else{
-    require_once(ROOT.'controllers/Main.php');
-    $controller = new Main();
-    $controller->index();
+    if (isset($_SESSION['utilisateur'])) {
+        require_once(ROOT.'controllers/Authentification.php');
+        $controller = new Authentification();
+        $controller->accueil();
+    } else {
+        require_once(ROOT.'controllers/Main.php');
+        $controller = new Main();
+        $controller->index();
+    }
 }
 
 ?>
